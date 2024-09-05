@@ -12,7 +12,7 @@ I built this simple command-line password strength analyzer tool. To expand my k
     5. Use of special characters [!-?]
 
 ## Tools used
-Being my first time doing something like thise I used multiple sources to ensure I am doing it correct. As well as helping me understand what I am doing, along with a bit of stumbling around in the dark.
+Being my first time doing something like this I used multiple sources to ensure I am doing it correct. As well as helping me understand what I am doing, along with a bit of stumbling around in the dark.
 ChatGPT (Ensuring I understand the code I'm writing)
 StackOverflow (Checking any potential errors I encountered to better understand them)
 YouTube (Any additional info)
