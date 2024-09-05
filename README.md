@@ -10,6 +10,7 @@ I built this simple command-line password strength analyzer tool. To expand my k
     3. Use of lowercase letters [a-z]
     4. Use of numbers [0-9]
     5. Use of special characters [!-?]
+    6. Checks Top 20 most common passwords according to NordPass (Wikipedia)
 
 ## Tools used
 Being my first time doing something like this I used multiple sources to ensure I am doing it correct. As well as helping me understand what I am doing, along with a bit of stumbling around in the dark.

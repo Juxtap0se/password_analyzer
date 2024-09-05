@@ -1,7 +1,16 @@
 import re
 import sys
 
+#I used the Top 20 most common passwords according to Nordpass on Wikipedia
+common_passwords = ['123456', '123456789', '12345', 'qwerty', 'password', '12345678', '111111', '123123', '1234567890', '1234567', 'qwerty123', '000000', '1q2w3e', 'aa12345678', 'abc123', 'password1', '1234', 'qwertyuiop', '123321', 'password123']
+
+def is_common_password(password):
+    return password in common_passwords
+
 def check_strength(password):
+    if is_common_password(password):
+        return "Very Weak (This is a commonly used password)"
+
     length = len(password)
     has_upper = bool(re.search(r'[A-Z]', password))
     has_lower = bool(re.search(r'[a-z]', password))
