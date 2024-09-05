@@ -1,14 +1,22 @@
 import re
 import sys
+import os
 
-#I used the Top 20 most common passwords according to Nordpass on Wikipedia
-common_passwords = ['123456', '123456789', '12345', 'qwerty', 'password', '12345678', '111111', '123123', '1234567890', '1234567', 'qwerty123', '000000', '1q2w3e', 'aa12345678', 'abc123', 'password1', '1234', 'qwertyuiop', '123321', 'password123']
+def load_common_passwords(password_strength_analyzer):
+    try:
+        with open(password_strength_analyzer, 'r') as file:
+            return [line.strip() for line in file.readlines()] 
+    except FileNotFoundError:
+        print(f"Error: The file {password_strength_analyzer} was not found.")
+        return []
 
-def is_common_password(password):
+common_passwords = load_common_passwords('common_passwords.txt')
+
+def is_common_password(password, common_passwords):
     return password in common_passwords
 
-def check_strength(password):
-    if is_common_password(password):
+def check_strength(password, common_passwords):
+    if is_common_password(password, common_passwords):
         return "Very Weak (This is a commonly used password)"
 
     length = len(password)
@@ -29,6 +37,8 @@ def check_strength(password):
         return "Very Strong"
 
 def main():
+    password_strength_analyzer = 'common_passwords.txt'
+    common_passwords = load_common_passwords(password_strength_analyzer)
     print("Starting the script...")
     if len(sys.argv) > 1:
         password = sys.argv[1]
@@ -37,7 +47,7 @@ def main():
 
     print(f"Password entered: {password}")
 
-    strength = check_strength(password)
+    strength = check_strength(password, common_passwords)
     print(f"Password strength: {strength}")
 
 if __name__ == "__main__":
